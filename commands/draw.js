@@ -20,6 +20,7 @@ async function translate_to_english(text) {
                 },
                 body: `text=${text}&target_lang=EN-GB`
             });
+            logger.info(`translate resp: ${JSON.stringify(resp)}`)
 
             const translate = await resp.json();
             logger.info(translate);
