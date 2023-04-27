@@ -32,7 +32,7 @@ module.exports = {
         var request = require('request');
         var options = {
           'method': 'POST',
-          'url': 'https://api.imgbb.com/1/upload?expiration=600&key=27f31d69b5e2be2ec233ed07b37a33a4',
+          'url': 'https://api.imgbb.com/1/upload?expiration=600&key=dd9dd629c2f5cdb879c17a4c20463b00',
           'headers': {
           },
           formData: {
