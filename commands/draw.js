@@ -147,7 +147,7 @@ module.exports = {
             'control_scribble-fp16 [c508311e]': ['pidinet_scribble', 'scribble_xdog', 'scribble_hed'],
             'control_seg-fp16 [b9c1cc12]': ['segmentation']
         }
-        if (!check_model[model].includes(module)) {
+        if (enable_controlnet && !check_model[model].includes(module)) {
             await interaction.reply('model和module不匹配');
             return;
         }
