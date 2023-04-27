@@ -10,6 +10,7 @@ async function translate_to_english(text) {
     // 判断字符串是否包含中文字符
     for (let char of text) {
         if ('\u4e00' <= char && char <= '\u9fff') {
+            logger.info("检测到中文");
             const api_key = 'd4462d35-a54d-0caa-ff7d-097b3812fc92:fx';
             const resp = await fetch('https://api-free.deepl.com/v2/translate', {
                 method: 'POST',
