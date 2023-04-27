@@ -20,8 +20,9 @@ async function translate_to_english(text) {
                 },
                 body: `text=${text}&target_lang=EN-GB`
             });
-            const translate = await resp.json();
             logger.info(`translate resp status, content: ${resp.status}, ${JSON.stringify(resp)}`)
+
+            const translate = await resp.json();
             logger.info(translate);
             return translate.translations[0].text; // 返回翻译后的英文字符串
         }
