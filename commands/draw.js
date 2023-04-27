@@ -20,7 +20,7 @@ async function translate_to_english(text) {
                 },
                 body: `text=${text}&target_lang=EN-GB`
             });
-            logger.info(`translate resp status, content: ${resp.status}, ${JSON.stringify(resp)}`)
+            logger.info(`translate resp status:${resp.status}}`);
 
             const translate = await resp.json();
             logger.info(translate);
@@ -203,11 +203,11 @@ module.exports = {
                 sampler_name: "DPM++ 2M Karras",
                 width: width,
                 height: height,
-                alwayson_scripts: enable_controlnet ? null : {
+                alwayson_scripts: enable_controlnet ? {
                     controlnet: {
                         args: controlNetUnitArgs
                     }
-                }
+                } : {}
             })
         };
         const uid = new ShortUniqueId();
