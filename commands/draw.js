@@ -130,7 +130,7 @@ module.exports = {
         const negative_prompt = interaction.options.getString('negative') ?? "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry";
         const width = interaction.options.getInteger('width') ?? 512;
         const height = interaction.options.getInteger('height') ?? 768;
-        const enable_controlnet = interaction.options.getBoolean('enable_controlnet');
+        const enable_controlnet = interaction.options.getBoolean('enable_controlnet') ?? false;
         const input_image = interaction.options.getString('input_image');
         const module = interaction.options.getString('module') ?? "";
         const model = interaction.options.getString('model') ?? "";
@@ -201,7 +201,7 @@ module.exports = {
                 sampler_name: "DPM++ 2M Karras",
                 width: width,
                 height: height,
-                alwayson_scripts: {
+                alwayson_scripts: enable_controlnet ? null : {
                     controlnet: {
                         args: controlNetUnitArgs
                     }
